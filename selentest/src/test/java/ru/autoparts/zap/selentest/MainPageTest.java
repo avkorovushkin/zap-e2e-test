@@ -47,24 +47,4 @@ public class MainPageTest {
         mainPage.searchField.shouldBe(visible);
     }
 
-
-//        $("[data-test='search-input']").sendKeys("Selenium");
-//        $("button[data-test='full-search-button']").click();
-//
-//        $("input[data-test='search-input']").shouldHave(attribute("value", "Selenium"));
-//    @Test
-//    public void toolsMenu() {
-//        mainPage.toolsMenu.click();
-//
-//        $("div[data-test='main-submenu']").shouldBe(visible);
-//    }
-//
-//    @Test
-//    public void navigationToAllTools() {
-//        mainPage.seeAllToolsButton.click();
-//
-//        $("#products-page").shouldBe(visible);
-//
-//        assertEquals("All Developer Tools and Products by JetBrains", Selenide.title());
-//    }
 }

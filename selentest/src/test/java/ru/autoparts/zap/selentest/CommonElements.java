@@ -13,9 +13,18 @@ public class CommonElements {
     public static final Header HEADER = new Header();
     public static final ProfileModal PROFILE_MODAL = new ProfileModal();
 
-    public static void login(String login, String password) {
+    public static void login() {
+        login("admin", "admin");
+    }
+
+    public static void loginBadCredentials() {
+        login("admin", "dimahui");
+    }
+
+    private static void login(String login, String password) {
         HEADER.loginElem.click();
         LOGIN_MODAL.loginInput.sendKeys(login);
+        sleep(100);
         LOGIN_MODAL.passwordInput.sendKeys(password);
         sleep(100);
         LOGIN_MODAL.submitButton.click();
