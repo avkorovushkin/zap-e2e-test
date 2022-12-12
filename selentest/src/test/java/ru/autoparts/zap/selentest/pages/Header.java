@@ -12,7 +12,7 @@ public class Header {
     public SelenideElement cartElem = $x("//*[@id=\"app-header\"]/div/div[3]/div/div[1]");
     public SelenideElement cartTextSpan = $x("//*[@id=\"app-header\"]/div/div[3]/div/div[1]/a/span");
     public SelenideElement ordersTextSpan = $x("//*[@id=\"app-header\"]/div/div[3]/div/div[2]/a/span");
-    public SelenideElement profileElem = $x("//*[@id=\"app-header\"]/div/div[3]/div/div[3]");
+    public SelenideElement profileElem = $x("//*[@id=\"app-header\"]/div/div[3]/div/div[2]");
 
     public SelenideElement currentH1Tag = $(byTagName("h1"));
 
