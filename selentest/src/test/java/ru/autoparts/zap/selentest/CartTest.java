@@ -4,6 +4,7 @@ import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,8 +17,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
-import static ru.autoparts.zap.selentest.CommonElements.HEADER;
-import static ru.autoparts.zap.selentest.CommonElements.login;
+import static ru.autoparts.zap.selentest.CommonElements.*;
 
 public class CartTest {
 
@@ -28,16 +28,20 @@ public class CartTest {
 
     @BeforeAll
     public static void setUpAll() {
-        Configuration.browserSize = "1920x1080";
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
     @BeforeEach
     public void setUp() {
-        open("http://127.0.0.1:5173/zap/");
+        open(Configuration.baseUrl);
         login();
     }
 
+
+    @AfterEach
+    public void tearDown() {
+        logout();
+    }
 
     @Test
     public void addToCart() throws InterruptedException {

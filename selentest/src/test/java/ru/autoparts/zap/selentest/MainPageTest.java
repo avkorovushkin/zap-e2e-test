@@ -18,13 +18,12 @@ public class MainPageTest {
 
     @BeforeAll
     public static void setUpAll() {
-        Configuration.browserSize = "1280x800";
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
     @BeforeEach
     public void setUp() {
-        open("http://127.0.0.1:5173/zap/");
+        open(Configuration.baseUrl);
     }
 
 
