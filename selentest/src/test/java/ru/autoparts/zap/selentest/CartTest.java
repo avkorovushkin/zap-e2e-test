@@ -15,7 +15,7 @@ import ru.autoparts.zap.selentest.pages.modals.AddedToCartModal;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static ru.autoparts.zap.selentest.CommonElements.*;
 
@@ -37,7 +37,6 @@ public class CartTest {
         login();
     }
 
-
     @AfterEach
     public void tearDown() {
         logout();
@@ -45,16 +44,16 @@ public class CartTest {
 
     @Test
     public void addToCart() throws InterruptedException {
-        mainPage.searchField.sendKeys("72700BM92B");
+        mainPage.searchField.sendKeys("402064EA0A");
         mainPage.searchButton.click();
-        HEADER.currentH1Tag.shouldHave(text("Артикул 72700BM92B"));
-        searchResultsPage.resultsRows.should(CollectionCondition.sizeGreaterThanOrEqual(3));
+        HEADER.currentH1Tag.shouldHave(text("Артикул 402064EA0A"));
+        searchResultsPage.resultsRows.should(CollectionCondition.sizeGreaterThanOrEqual(9));
 
         searchResultsPage.firstRowQuantityInput.setValue("2");
         searchResultsPage.firstRowCartButton.click();
         addedToCartModal.continueShoppingButton.click();
 
-        searchResultsPage.secondRowQuantityInput.setValue("1");
+        searchResultsPage.secondRowQuantityInput.setValue("2");
         searchResultsPage.secondRowCartButton.click();
         addedToCartModal.goToCartButton.click();
 
@@ -62,14 +61,12 @@ public class CartTest {
         cartPage.cartTable.shouldBe(visible);
         cartPage.cartRows.should(CollectionCondition.size(2));
         cartPage.firstRowDeleteButton.click();
-        $x("//*[@id=\"app\"]/div[4]/div[1]/div[2]/div/div[3]/div/button/span[3]").click();
+        $("#deletion-confirmed").click(); //принимаем факт что товар удален из корзины
         cartPage.cartRows.should(CollectionCondition.size(1));
-        //todo клик срабатывает несколько раз (по числу изначальных строк в таблице кажется) - разобраться и сделать кейсы на клик
-//        cartPage.firstRowMinus.click();
-//        cartPage.firstRowPrice.shouldBe(exactValue(cartPage.firstRowSum.getText()));
 
         //todo оформить заказ - сейчас вылетает ошибка
-
+        cartPage.firstRowDeleteButton.click();
+        $("#deletion-confirmed").click();
     }
 
 }

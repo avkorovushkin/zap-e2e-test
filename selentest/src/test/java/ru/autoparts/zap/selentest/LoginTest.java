@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -31,11 +30,7 @@ public class LoginTest {
     public void loginSuccess() {
 
         login();
-
         HEADER.cartElem.shouldBe(visible);
-        HEADER.cartTextSpan.shouldHave(text("Корзина"));
-        //HEADER.ordersTextSpan.shouldBe(visible).shouldHave(text("Заказы"));
-
         logout();
     }
 

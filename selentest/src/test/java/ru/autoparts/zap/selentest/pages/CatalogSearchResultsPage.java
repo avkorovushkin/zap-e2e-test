@@ -12,17 +12,12 @@ public class CatalogSearchResultsPage {
     public ElementsCollection resultsRows = $$(".mdc-data-table__row");
     public ElementsCollection cvtCells = $$(byText("CVT"));
     public ElementsCollection europeMarketCells = $$(byText("CVT"));
-
-    public ElementsCollection treeNodes = $$(".mdc-tree-node .mdc-tree-node--root");
-
     public SelenideElement groupSearchButton = $(byText("Поиск по группам"));
-
     public SelenideElement groupTree = $(".mdc-tree");
     public SelenideElement engineNode = $(byText("Двигатель"));
     public SelenideElement engineExpandArrow = $x("//*[@id=\"app\"]/main/div[3]/div[1]/div/div/ul/li[2]/div/div");
     public SelenideElement padsElement = $(byText("Прокладки"));
     public SelenideElement gasketKitElement = $x("//*[@id=\"app\"]/main/div[3]/div[2]/div/div[2]");
-
     public SelenideElement searchDetailLink = $(byLinkText("A0AMA1VA0A"));
 
 }

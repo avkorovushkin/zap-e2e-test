@@ -12,6 +12,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
+import static ru.autoparts.zap.selentest.CommonElements.HEADER;
 
 public class MainPageTest {
     private final MainPage mainPage = new MainPage();
@@ -40,8 +41,7 @@ public class MainPageTest {
         $x("//*[@id=\"about-banner\"]/div/div/div/div[2]/div/div/p[1]")
                 .shouldHave(text("интернет-магазин автозапчастей"));
         mainPage.catalogTab.click();
-        $x("//*[@id=\"app\"]/main/div[1]/h1")
-                .shouldHave(text("Оригинальный каталог"));
+        HEADER.currentH1Tag.shouldHave(text("Оригинальный каталог"));
         mainPage.mainTab.click();
         mainPage.searchField.shouldBe(visible);
     }

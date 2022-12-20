@@ -11,8 +11,8 @@ public class VendorCodeSearchResultsPage {
     public SelenideElement resultsTable = $(byTagName("table"));
     public ElementsCollection resultsRows = $$(".mdc-data-table__row");
 
-    public SelenideElement firstRowQuantityInput = $x("//*[@id=\"3134630153\"]/input");
-    public SelenideElement secondRowQuantityInput = $x("//*[@id=\"3134967730\"]/input");
-    public SelenideElement firstRowCartButton = $x("//*[@id=\"app\"]/main/div[2]/div/div/div/div[1]/table/tbody/tr[1]/td[7]/button");
-    public SelenideElement secondRowCartButton = $x("//*[@id=\"app\"]/main/div[2]/div/div/div/div[1]/table/tbody/tr[2]/td[7]/button");
+    public SelenideElement firstRowQuantityInput = $x("/html/body/div[1]/main/div[2]/div/div/div/div[1]/table/tbody/tr[1]/td[6]/div/input");
+    public SelenideElement secondRowQuantityInput = $x("/html/body/div[1]/main/div[2]/div/div/div/div[1]/table/tbody/tr[2]/td[6]/div/input");
+    public SelenideElement firstRowCartButton = $("#app > main > div.row > div > div > div > div.mdc-data-table__table-container > table > tbody > tr:nth-child(1) > td:nth-child(7) > button");
+    public SelenideElement secondRowCartButton = $("#app > main > div.row > div > div > div > div.mdc-data-table__table-container > table > tbody > tr:nth-child(2) > td:nth-child(7) > button");
 }
