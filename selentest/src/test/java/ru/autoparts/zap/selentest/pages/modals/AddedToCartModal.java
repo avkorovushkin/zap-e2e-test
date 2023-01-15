@@ -8,6 +8,9 @@ public class AddedToCartModal {
 
     public SelenideElement continueShoppingButton = $("#continue-shopping");
     public SelenideElement goToCartButton = $("#go-to-cart");
-
+    public SelenideElement closeButton = $(".mdc-dialog__close");
+    public SelenideElement addToCartButton = $("#add-to-cart");
+    //?? почему так?
+    public SelenideElement continueButton = $("#deletion-confirmed");
 
 }

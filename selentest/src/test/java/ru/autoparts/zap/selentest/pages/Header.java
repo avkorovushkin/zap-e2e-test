@@ -12,5 +12,6 @@ public class Header {
     public SelenideElement profileElem = $("#open-profile-dialog");
     ;
     public SelenideElement currentH1Tag = $(byTagName("h1"));
+    public SelenideElement currentH3Tag = $(byTagName("h3"));
 
 }

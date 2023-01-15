@@ -17,7 +17,8 @@ import ru.autoparts.zap.selentest.pages.VendorCodeSearchResultsPage;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static ru.autoparts.zap.selentest.CommonElements.*;
+import static ru.autoparts.zap.selentest.CommonElements.login;
+import static ru.autoparts.zap.selentest.CommonElements.logout;
 
 public class SearchTest {
 
@@ -46,7 +47,8 @@ public class SearchTest {
     public void searchByVendorCode() {
         mainPage.searchField.sendKeys("2342342");
         mainPage.searchButton.click();
-        HEADER.currentH1Tag.shouldBe(Condition.visible).shouldHave(Condition.text("Артикул 2342342"));
+        //это больше не показывается
+        //HEADER.currentH1Tag.shouldBe(Condition.visible).shouldHave(Condition.text("Артикул 2342342"));
 
         vendorCodeSearchResultsPage.resultsTable.shouldBe(Condition.visible);
         vendorCodeSearchResultsPage.resultsRows.should(CollectionCondition.sizeGreaterThan(3));
@@ -96,8 +98,8 @@ public class SearchTest {
 
         catalogSearchResultsPage.gasketKitElement.shouldHave(Condition.text("Комплект уплотнительных прокладок двигателя ; GASKET KITS"));
         catalogSearchResultsPage.searchDetailLink.shouldBe(Condition.visible).click();
-
-        HEADER.currentH1Tag.shouldHave(Condition.text("Артикул A0AMA1VA0A"));
+        //это больше не показывается
+        //HEADER.currentH1Tag.shouldHave(Condition.text("Артикул A0AMA1VA0A"));
         vendorCodeSearchResultsPage.resultsTable.shouldBe(Condition.visible);
         vendorCodeSearchResultsPage.resultsRows.should(CollectionCondition.sizeGreaterThanOrEqual(8));
 
